@@ -27,6 +27,10 @@ namespace LearningManagement.Repository
             return student;
         }
 
-        
+
+        public async Task<ActionResult<List<Student>>> GetStudents()
+        {
+            return await _context.Students.ToListAsync();
+        }
     }
 }
