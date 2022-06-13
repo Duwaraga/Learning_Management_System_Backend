@@ -33,7 +33,7 @@ namespace LearningManagement
             services.AddDbContextPool<AppDbContext>(options =>
                 options.UseMySql(Configuration.GetConnectionString("LMSConnectionString"),  new MySqlServerVersion(new Version())));
             services.AddControllers();
-           
+             services.AddScoped<IStudentRepository, Repository.Repository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
