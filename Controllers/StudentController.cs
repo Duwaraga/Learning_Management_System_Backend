@@ -25,7 +25,14 @@ namespace LearningManagement.Controllers
             return await _student.GetStudents();
         }
         
-       
+        [HttpPost]
+        public  ActionResult<Student> Create(Student student)
+        {
+            return  _student.AddStudent(student);
+        }
+        
+        
+        
 
     }
 }
