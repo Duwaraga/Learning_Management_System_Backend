@@ -32,7 +32,11 @@ namespace LearningManagement.Controllers
         }
         
         
-        
+        [HttpDelete("{id}")]
+        public ActionResult<Student> Delete(string id)
+        {
+            return  _student.RemoveStudent(id);
+        }
 
     }
 }
