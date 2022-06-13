@@ -27,6 +27,18 @@ namespace LearningManagement.Repository
             return student;
         }
 
+        public Student RemoveStudent(String reg)
+        {
+            Guid id = _context.Students.FirstOrDefault(e => e.RegNo == reg)!.Id;
+            var student = _context.Students.FirstOrDefault(e => e.Id == id);
+            if (student != null)
+            {
+                _context.Students.Remove(student);
+                _context.SaveChanges();
+            }
+
+            return student;
+        }
 
         public async Task<ActionResult<List<Student>>> GetStudents()
         {
